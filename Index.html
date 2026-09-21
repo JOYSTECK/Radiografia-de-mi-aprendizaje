@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Radiografía de mi aprendizaje</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+    color:#263238;
+    line-height:1.6;
+}
+
+/* ---------- PORTADA ---------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(135deg,#51a80f,#18f004,#42f575);
+    color:rgb(18, 18, 18);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before,
+.hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+}
+
+.hero::before{
+    width:400px;
+    height:400px;
+    top:-150px;
+    right:-100px;
+}
+
+.hero::after{
+    width:300px;
+    height:300px;
+    bottom:-120px;
+    left:-100px;
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.icon{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,72px);
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h2{
+    font-size:clamp(20px,3vw,30px);
+    font-weight:400;
+    margin-bottom:30px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.95;
+}
+
+.student{
+    margin-top:35px;
+    padding:14px 25px;
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:30px;
+}
+
+/* ---------- NAVEGACIÓN ---------- */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 25px;
+}
+
+.logo{
+    font-weight:800;
+    color:#080808;
+}
+
+.nav-links{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#37474f;
+    font-size:14px;
+    font-weight:600;
+    padding:7px 10px;
+    border-radius:8px;
+}
+
+.nav-links a:hover{
+    background:#e3f2fd;
+    color:#c0ac15;
+}
+
+/* ---------- CONTENEDOR ---------- */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:70px 25px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:#1976d2;
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:8px;
+}
+
+/* ---------- INTRO ---------- */
+
+.intro{
+    background:white;
+    border-radius:22px;
+    padding:35px;
+    margin-bottom:60px;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+}
+
+.intro h3{
+    color:#1565c0;
+    margin-bottom:15px;
+}
+
+/* ---------- BLOQUES ---------- */
+
+.blocks{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    border-top:6px solid #1976d2;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.number{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:55px;
+    font-weight:900;
+    color:#e3f2fd;
+}
+
+.card-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#1565c0;
+    font-size:23px;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.card p{
+    font-size:16px;
+    color:#455a64;
+    position:relative;
+}
+
+/* ---------- EVIDENCIA ---------- */
+
+.evidence{
+    margin-top:25px;
+    padding:20px;
+    border-radius:15px;
+    background:#f5f9ff;
+    border:2px dashed #90caf9;
+}
+
+.evidence-title{
+    font-weight:700;
+    color:#1565c0;
+    margin-bottom:10px;
+}
+
+.evidence-placeholder{
+    min-height:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#eaf4ff;
+    border-radius:12px;
+    color:#607d8b;
+    padding:20px;
+}
+
+.evidence img{
+    max-width:100%;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+/* ---------- DECISIÓN ---------- */
+
+.decision{
+    border-left-color:#7e57c2;
+}
+
+.decision h3{
+    color:#673ab7;
+}
+
+/* ---------- PROBLEMA ---------- */
+
+.problem{
+    border-left-color:#ef6c00;
+}
+
+.problem h3{
+    color:#e65100;
+}
+
+.solution{
+    margin-top:20px;
+    background:#fff8e1;
+    padding:15px;
+    border-radius:12px;
+}
+
+.solution strong{
+    color:#e65100;
+}
+
+/* ---------- COEVALUACIÓN ---------- */
+
+.coevaluation{
+    border-top-color:#00897b;
+}
+
+.coevaluation h3{
+    color:#00796b;
+}
+
+.feedback-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+}
+
+.feedback{
+    padding:18px;
+    border-radius:12px;
+}
+
+.strength{
+    background:#e8f5e9;
+}
+
+.improvement{
+    background:#fff3e0;
+}
+
+.feedback strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+/* ---------- FUTURO ---------- */
+
+.future{
+    border-top-color:#43a047;
+}
+
+.future h3{
+    color:#2e7d32;
+}
+
+/* ---------- REFLEXIÓN FINAL ---------- */
+
+.final-reflection{
+    margin-top:70px;
+    padding:50px 35px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    color:white;
+    text-align:center;
+}
+
+.final-reflection h2{
+    margin-bottom:20px;
+    font-size:32px;
+}
+
+.final-reflection p{
+    max-width:800px;
+    margin:auto;
+    font-size:20px;
+}
+
+/* ---------- PROGRESO ---------- */
+
+.progress-section{
+    margin-top:60px;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+}
+
+.progress-bar{
+    width:100%;
+    height:16px;
+    background:#e3f2fd;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.progress-fill{
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,#1565c0,#42a5f5);
+}
+
+/* ---------- BOTONES ---------- */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:13px 22px;
+    border-radius:25px;
+    background:#1565c0;
+    color:white;
+    cursor:pointer;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.btn:hover{
+    background:#0d47a1;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    background:#263238;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:70px;
+}
+
+footer p{
+    margin:5px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:800px){
+
+    .blocks{
+        grid-template-columns:1fr;
+    }
+
+    .feedback-box{
+        grid-template-columns:1fr;
+    }
+
+    .nav-container{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .nav-links{
+        justify-content:center;
+    }
+
+}
+
+@media print{
+
+    .navbar,
+    .buttons{
+        display:none;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:60px 20px;
+    }
+
+    .card{
+        break-inside:avoid;
+    }
+
+    body{
+        background:white;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= PORTADA ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="icon">🧠</div>
+
+<h1>Radiografía de mi aprendizaje</h1>
+
+<h2>Reto: Diseña la radiografía de tu aprendizaje</h2>
+
+<p>
+¿Qué aprendí realmente al convertir una idea en una experiencia
+de aprendizaje dentro de Google Classroom?
+</p>
+
+<div class="student">
+<strong>Jesús Edelmar García del Ángel</strong><br>
+Curso: Estrategias de inclusión para estudiantes con TDAH
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= NAVEGACIÓN ================= -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">
+Mi aprendizaje
+</div>
+
+<div class="nav-links">
+
+<a href="#aprendi">1. Aprendí</a>
+<a href="#decision">2. Decisión</a>
+<a href="#evidencia">3. Evidencia</a>
+<a href="#problema">4. Problema</a>
+<a href="#coevaluacion">5. Coevaluación</a>
+<a href="#futuro">6. Futuro</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- ================= CONTENIDO ================= -->
+
+<main class="container">
+
+
+<section class="intro">
+
+<h3>Mi experiencia</h3>
+
+<p>
+Durante este reto diseñé y organicé un curso en Google Classroom
+titulado <strong>“Estrategias de inclusión para estudiantes con TDAH”</strong>,
+dirigido a docentes de quinto grado de primaria. A través de este
+proceso aprendí que crear un curso digital implica mucho más que
+subir información: es necesario organizar contenidos, diseñar
+actividades, considerar a quién va dirigido y generar una experiencia
+de aprendizaje con un propósito claro.
+</p>
+
+</section>
+
+
+<div class="section-title">
+
+<span>Mi experiencia de aprendizaje</span>
+
+<h2>Los 6 bloques</h2>
+
+</div>
+
+
+<div class="blocks">
+
+
+<!-- 1 -->
+
+<section class="card" id="aprendi">
+
+<div class="number">01</div>
+
+<div class="card-icon">🧠</div>
+
+<h3>Lo que aprendí</h3>
+
+<p>
+Mi aprendizaje más importante fue comprender que crear un curso en
+Google Classroom no consiste solamente en subir información, sino en
+organizar una experiencia de aprendizaje con un propósito claro.
+Aprendí a estructurar contenidos por módulos, plantear actividades
+diferentes y relacionarlas con los aprendizajes que se esperan lograr.
+También comprendí que una plataforma digital puede utilizarse para
+favorecer la participación, la reflexión y la inclusión.
+</p>
+
+</section>
+
+
+<!-- 2 -->
+
+<section class="card decision" id="decision">
+
+<div class="number">02</div>
+
+<div class="card-icon">🎯</div>
+
+<h3>Una decisión que tomé</h3>
+
+<p>
+Una decisión importante fue dirigir el curso a
+<strong>docentes de 5.º de primaria</strong>, en lugar de diseñarlo
+directamente para los estudiantes. Tomé esta decisión porque los
+docentes son quienes pueden implementar estrategias inclusivas dentro
+del aula y favorecer la participación de todos los estudiantes.
+A partir de esta decisión aprendí que primero es necesario identificar
+a quién va dirigido un curso para seleccionar correctamente los
+contenidos, actividades y productos.
+</p>
+
+</section>
+
+
+<!-- 3 -->
+
+<section class="card" id="evidencia">
+
+<div class="number">03</div>
+
+<div class="card-icon">📸</div>
+
+<h3>Una evidencia</h3>
+
+<p>
+Una evidencia de mi aprendizaje es la estructura del curso
+<strong>“Estrategias de inclusión para estudiantes con TDAH”</strong>,
+organizada en diferentes módulos. Incluí actividades como
+<strong>“Detective de estrategias”</strong>,
+<strong>“Semáforo de la inclusión”</strong> y
+<strong>“Transforma tu evaluación”</strong>.
+Esto demuestra que aprendí a diseñar actividades con diferentes
+propósitos y no solamente a colocar información en Classroom.
+</p>
+
+<div class="evidence">
+
+<div class="evidence-title">
+📌 Evidencia de mi curso
+</div>
+
+<div class="evidence-placeholder">
+
+<p>
+<strong>Coloca aquí una captura de pantalla de tu Google Classroom.</strong>
+<br><br>
+Puedes mostrar la página principal del curso,
+los módulos o las actividades diseñadas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 4 -->
+
+<section class="card problem" id="problema">
+
+<div class="number">04</div>
+
+<div class="card-icon">⚠️</div>
+
+<h3>Un problema / una solución</h3>
+
+<p>
+Uno de los problemas que enfrenté fue organizar las actividades para
+que no fueran repetitivas y realmente permitieran trabajar diferentes
+aspectos de la inclusión.
+</p>
+
+<div class="solution">
+
+<strong>💡 Solución:</strong>
+
+<p>
+Cambié el tipo de actividad en cada módulo. Utilicé análisis de
+situaciones, clasificación mediante un semáforo, transformación de
+una evaluación y elaboración de un plan de acción.
+</p>
+
+</div>
+
+<p style="margin-top:15px;">
+Con esto aprendí que diseñar un curso requiere revisar constantemente
+las actividades y preguntarse si realmente aportan algo diferente
+al aprendizaje.
+</p>
+
+</section>
+
+
+<!-- 5 -->
+
+<section class="card coevaluation" id="coevaluacion">
+
+<div class="number">05</div>
+
+<div class="card-icon">💬</div>
+
+<h3>Lo que descubrí con la coevaluación</h3>
+
+<p>
+A partir de la coevaluación descubrí que una fortaleza de mi trabajo
+es la organización del curso y la relación entre los contenidos y
+las actividades. También identifiqué que puedo mejorar la manera en
+que presento algunas instrucciones para que sean todavía más claras
+y fáciles de seguir.
+</p>
+
+<div class="feedback-box">
+
+<div class="feedback strength">
+
+<strong>💪 Fortaleza</strong>
+
+Organización del curso y relación entre contenidos y actividades.
+
+</div>
+
+<div class="feedback improvement">
+
+<strong>🔧 Aspecto a mejorar</strong>
+
+Hacer algunas instrucciones más claras y concretas.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 6 -->
+
+<section class="card future" id="futuro">
+
+<div class="number">06</div>
+
+<div class="card-icon">🔄</div>
+
+<h3>Si lo hiciera de nuevo...</h3>
+
+<p>
+Si tuviera que diseñar nuevamente el curso, incorporaría más recursos
+interactivos, como pequeños cuestionarios, videos o actividades de
+participación dentro de la plataforma. También revisaría las
+instrucciones de cada actividad antes de publicarlas para asegurar
+que sean claras y concretas.
+</p>
+
+<p style="margin-top:15px;">
+Realizaría este cambio porque comprendí que un curso digital no
+depende únicamente de la información que contiene, sino también de
+la manera en que el usuario interactúa con ella.
+</p>
+
+</section>
+
+</div>
+
+
+<!-- ================= PROGRESO ================= -->
+
+<section class="progress-section">
+
+<h3>📊 Mi proceso de aprendizaje</h3>
+
+<p>
+Durante el reto pasé por diferentes etapas: planificación,
+diseño, organización, solución de problemas, retroalimentación
+y reflexión.
+</p>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+<p style="text-align:center;margin-top:12px;">
+<strong>6 de 6 bloques completados</strong>
+</p>
+
+</section>
+
+
+<!-- ================= REFLEXIÓN FINAL ================= -->
+
+<section class="final-reflection">
+
+<h2>💭 Mi reflexión final</h2>
+
+<p>
+“No aprendí solamente a utilizar Google Classroom; aprendí a
+transformar una idea educativa en una experiencia de aprendizaje
+organizada, inclusiva y con un propósito.”
+</p>
+
+</section>
+
+
+<!-- ================= BOTONES ================= -->
+
+<div class="buttons">
+
+<button class="btn" onclick="window.print()">
+🖨️ Imprimir / Guardar como PDF
+</button>
+
+<a class="btn" href="#aprendi">
+⬆️ Volver al inicio
+</a>
+
+</div>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p><strong>Radiografía de mi aprendizaje</strong></p>
+
+<p>
+Google Classroom · Primer parcial
+</p>
+
+<p>
+Jesús Edelmar García del Ángel · 2026
+</p>
+
+</footer>
+
+
+<script>
+
+/* Animación sencilla al aparecer las tarjetas */
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+entry.target.style.transform = "translateY(0)";
+
+}
+
+});
+
+},{
+threshold:0.15
+});
+
+cards.forEach(card => {
+
+card.style.opacity = "0";
+card.style.transform = "translateY(30px)";
+card.style.transition = "opacity .7s ease, transform .7s ease";
+
+observer.observe(card);
+
+});
+
+</script>
+
+</body>
+</html>
